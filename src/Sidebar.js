@@ -27,8 +27,6 @@ function Sidebar() {
         }))
       );
     });
-
-    console.log(channels);
   }, []);
 
   return (
@@ -43,21 +41,58 @@ function Sidebar() {
         </div>
         <CreateIcon />
       </div>
-      <SidebarOption Icon={InsertCommentIcon} title="Threads" />
-      <SidebarOption Icon={InboxIcon} title="Mentions & reactions" />
-      <SidebarOption Icon={DraftsIcon} title="Saved items" />
-      <SidebarOption Icon={BookmarkBorderIcon} title="Channel browser" />
-      <SidebarOption Icon={PeopleAltIcon} title="People & user groups" />
-      <SidebarOption Icon={AppsIcon} title="Apps" />
-      <SidebarOption Icon={FileCopyIcon} title="File browser" />
-      <SidebarOption Icon={ExpandLessIcon} title="Show less" />
+      <SidebarOption
+        key="InsertCommentIcon"
+        Icon={InsertCommentIcon}
+        title="Threads"
+      />
+      <SidebarOption
+        key="InboxIcon"
+        Icon={InboxIcon}
+        title="Mentions & reactions"
+      />
+      <SidebarOption key="DraftsIcon" Icon={DraftsIcon} title="Saved items" />
+      <SidebarOption
+        key="BookmarkBorderIcon"
+        Icon={BookmarkBorderIcon}
+        title="Channel browser"
+      />
+      <SidebarOption
+        key="PeopleAltIcon"
+        Icon={PeopleAltIcon}
+        title="People & user groups"
+      />
+      <SidebarOption key="AppsIcon" Icon={AppsIcon} title="Apps" />
+      <SidebarOption
+        key="FileCopyIcon"
+        Icon={FileCopyIcon}
+        title="File browser"
+      />
+      <SidebarOption
+        key="ExpandLessIcon"
+        Icon={ExpandLessIcon}
+        title="Show less"
+      />
       <hr />
-      <SidebarOption Icon={ExpandMoreIcon} title="Show more" />
+      <SidebarOption
+        key="ExpandMoreIcon"
+        Icon={ExpandMoreIcon}
+        title="Show more"
+      />
       <hr />
-      <SidebarOption Icon={AddIcon} title="Add channel" />
+      <SidebarOption
+        addChannelOption
+        key="AddIcon"
+        Icon={AddIcon}
+        title="Add channel"
+      />
 
-      {channels.map((channels) => (
-        <SidebarOption title={channels.name} />
+      {channels.map((channel) => (
+        <SidebarOption
+          id={channel.id}
+          key={channel.name}
+          title={channel.name}
+        />
       ))}
     </div>
   );
